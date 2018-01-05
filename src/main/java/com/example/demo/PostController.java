@@ -22,11 +22,24 @@ public class PostController {
 	}
 	
 	@RequestMapping(value="/createPost", method=RequestMethod.POST)
-	public String createPost(@ModelAttribute Post post){
+	public String createPost(@ModelAttribute Post post, String date){
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String currentUser = authentication.getName();
-		
+		String currentUser = authentication.getName();		
 		post.setUser(currentUser);
+		
+		/*
+		 You can only bind Model Objects which can be defined with simple types.
+		 when the object serialized from the client side to the server , 
+		 It has no knowledge about the complex types(like java.time.LocalDate) 
+		 unless they are expressed interms of simple types.
+		 */
+		System.out.println("dateString: " + post.getDatestring());
+		
+		Utilities utilities = new Utilities();				
+		post.setDate(utilities.getDateFromString(post.getDatestring()));
+		
+		System.out.println("SqlString: " + post.getDate());
+		
 		postRepository.save(post);
 		return "redirect:/";
 	}

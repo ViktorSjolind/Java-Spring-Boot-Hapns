@@ -15,5 +15,6 @@ public class ChristmasAppApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ChristmasAppApplication.class, args);
+
 	}
 }

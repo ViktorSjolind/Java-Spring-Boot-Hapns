@@ -24,7 +24,7 @@ public class ChristmasController {
 		List<Post> postList = postRepository.findAll();
 		
 		for(Post post: postList){
-			System.out.println(post.getDate() + " " + post.getTime());
+			//System.out.println(post.getDate() + " " + post.getTime());
 			
 		}
 		
@@ -45,10 +45,10 @@ public class ChristmasController {
 		System.out.println("id: " + id.toString() + "\n" + pressed);
 		//every cookie is a pseudo array
 		// id_id_id_id
-		// id's denote which posts the use have set to going
+		// id's denote which posts the user have set to going
 		
 		Utilities utilities = new Utilities();
-		List pressedList = utilities.getList(pressed);		
+		List pressedList = utilities.getListFromPseudoArray(pressed);		
 		
 		if(!pressedList.contains(id.toString())){
 			Post post = postRepository.findOne(id);
