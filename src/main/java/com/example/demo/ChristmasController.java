@@ -21,12 +21,12 @@ public class ChristmasController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String index(Model model){
-		List<Post> postList = postRepository.findAll();
+		/*
+		List<Post> postList = postRepository.findAll();		
+		postList.addAll(postRepository.findAllByDate());
+		*/
 		
-		for(Post post: postList){
-			//System.out.println(post.getDate() + " " + post.getTime());
-			
-		}
+		List<Post> postList = postRepository.findAllByOrderByDateDesc();
 		
 		if(postList != null){
 			model.addAttribute("posts", postList);

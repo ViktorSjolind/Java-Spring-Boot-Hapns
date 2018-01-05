@@ -33,6 +33,7 @@ public class PostController {
 		 It has no knowledge about the complex types(like java.time.LocalDate) 
 		 unless they are expressed interms of simple types.
 		 */
+		
 		System.out.println("dateString: " + post.getDatestring());
 		
 		Utilities utilities = new Utilities();				
