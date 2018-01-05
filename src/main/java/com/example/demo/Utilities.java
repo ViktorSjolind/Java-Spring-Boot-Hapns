@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,6 +33,18 @@ public class Utilities {
 		return date;
 	}
 	
+	
+	public Time getTimeFromString(String timeString){
+		SimpleDateFormat format = new SimpleDateFormat("HH:MM");
+		java.util.Date parsed = null;
+		try {
+			parsed = format.parse(timeString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Time time = new Time(parsed.getTime());
+		return time;
+	}
 	
 	
 }

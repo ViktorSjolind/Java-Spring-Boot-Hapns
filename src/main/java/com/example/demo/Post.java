@@ -1,17 +1,13 @@
 package com.example.demo;
 
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.sql.Time;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Post {
@@ -22,12 +18,8 @@ public class Post {
 	private Long id;	
 	private String user;
 	private String text;
-	/*
-	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-	private LocalDateTime dateTime;
-	*/	
-	private String datestring;	
 	private Date date;  
+	private Time time;	
 	private int going = 0;
 	
 	public Long getId(){
@@ -56,18 +48,10 @@ public class Post {
 		this.text = text;
 	}
 	
+
 	
 	
-	public String getDatestring(){
-		return datestring;
-	}
-	
-	public void setDatestring(String datestring){
-		this.datestring = datestring;
-	}
-	
-	
-	
+	//Date & time
 	
 	public Date getDate(){
 		return date;
@@ -77,6 +61,16 @@ public class Post {
 		this.date = date;
 	}
 	
+	public Time getTime() {
+		return time;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
+	}
+	//////////////////
+	
+	
 	public int getGoing(){
 		return going;
 	}
@@ -84,5 +78,7 @@ public class Post {
 	public void setGoing(int going){
 		this.going = going;
 	}
+
+	
 	
 }
