@@ -41,7 +41,7 @@ public class ChristmasController {
 	}
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
-	public String login(@CookieValue(value="pressed", defaultValue = "false")String pressed, Long id, HttpServletResponse response){		
+	public String login(@CookieValue(value="pressed", defaultValue = "")String pressed, Long id, HttpServletResponse response){		
 		System.out.println("id: " + id.toString() + "\n" + pressed);
 		//every cookie is a pseudo array
 		// id_id_id_id
@@ -59,8 +59,8 @@ public class ChristmasController {
 			post.setGoing(temp);
 			System.out.println("new: " + post.getGoing());
 			postRepository.save(post);
-						
-			Cookie cookie = new Cookie(pressedList.toString(), pressed+"_"+id.toString());
+			
+			Cookie cookie = new Cookie("pressed", pressed+"_"+id.toString());
 			response.addCookie(cookie);
 		
 		}
