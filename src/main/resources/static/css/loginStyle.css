@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+h1{
+	text-align: center;
+}
+
+.formContainer{
+	display: block;
+	text-align: center;
+}
+
+form{
+    
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+	padding: 12px 20px;
+    border: 1px solid #ccc;
+}
+p{
+	padding-top: 5px;
+}
+
+.submitButton{
+	margin: 0 auto;
+	padding-top: 5px;
+	background-color: rgb(50, 156, 195);
+    color: white;
+    padding: 15px 32px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+	
+}
+
+.submitButton:hover {
+    opacity: 0.9;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Hapns - the latest event</title>
+<link th:href="@{/css/indexStyle.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<h1>Hapns</h1>
+	
+	<!--  
+	<button class="createPost" onclick="location.href='/createPost'" type="button">
+	     Create Post</button>
+	-->
+	
+	<form th:action="@{/createPost}" method="GET">
+	    <input class="createPost" type="submit" value="Create post" />
+	</form>
+	
+	<!--  
+	<button class="createPost"><a th:href="@{/createPost}">Create post</a></button>
+	-->
+	
+	<div class="postList" th:unless="${#lists.isEmpty(posts)}">
+		<dl th:each="post : ${posts}">
+			<dt class="post">
+				<p>User: <span th:text="${post.user}"></span></p>
+				<p>Description: <span th:text="${post.text}"></span></p>
+				<!-- 
+				<p>Time: <span th:text="${#temporals.format(post.dateTime, 'yyyy-MM-dd HH:mm')}"> </span></p>
+				 -->
+				<p>Going: <span th:text="${post.going}"></span>  </p>
+				<p>	
+					<form th:action="@{/}" method="POST">
+						<input th:if="${post != null}" type="hidden" th:value="${post.id}" name="id" />
+				    	<input class="going" type="submit" value="Going" />
+					</form> 
+				</p>
+			</dt>		
+		</dl>
+	</div>
+		
+	<div th:if="${#lists.isEmpty(posts)}">
+		<p>No posts</p>		
+	</div>
+
+
+</body>
+</html>

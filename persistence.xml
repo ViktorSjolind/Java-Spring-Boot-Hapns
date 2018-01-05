@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<entity-mappings>
+    <converter class="com.example.demo.LocalDateTimeAttributeConverter" auto-apply="true"/>
+</entity-mappings>

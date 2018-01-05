@@ -1,0 +1,15 @@
+*username for posts
+*timestamp select by user for posts, when even is happening
+*index list all posts
+*index UI
+*createPost button
+*post UI
+-sort events according to date
+-?map feature
+-?facebook login
+-images for posts
+-csrf 
+*login UI
+-today tab for posts
+-remove posts after timestamp reached
+* #going indicator
