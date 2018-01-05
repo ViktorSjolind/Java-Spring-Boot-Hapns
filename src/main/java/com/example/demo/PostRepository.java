@@ -16,5 +16,5 @@ public interface PostRepository extends JpaRepository<Post, Long>{
 				
 	List<Post> findAllByOrderByDateDesc();
 	
-	
+	List<Post> findAllByOrderByDateDescTimeDesc();
 }

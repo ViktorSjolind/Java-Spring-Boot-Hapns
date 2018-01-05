@@ -26,7 +26,7 @@ public class ChristmasController {
 		postList.addAll(postRepository.findAllByDate());
 		*/
 		
-		List<Post> postList = postRepository.findAllByOrderByDateDesc();
+		List<Post> postList = postRepository.findAllByOrderByDateDescTimeDesc();
 		
 		if(postList != null){
 			model.addAttribute("posts", postList);
