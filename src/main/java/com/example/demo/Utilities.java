@@ -35,14 +35,14 @@ public class Utilities {
 	
 	
 	public Time getTimeFromString(String timeString){
-		SimpleDateFormat format = new SimpleDateFormat("HH:MM");
-		java.util.Date parsed = null;
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+		Time time = null;
 		try {
-			parsed = format.parse(timeString);
+			time = new Time(format.parse(timeString).getTime());
 		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Time time = new Time(parsed.getTime());
 		return time;
 	}
 	
