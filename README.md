@@ -1,4 +1,4 @@
 # Hapns
-A web site where people can casualyl share events 
+A web site where people can casually share events 
 
 Made with Java, Spring Boot, MySQL, HTML5
