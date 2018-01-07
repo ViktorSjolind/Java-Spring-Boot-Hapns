@@ -17,4 +17,11 @@ public interface PostRepository extends JpaRepository<Post, Long>{
 	List<Post> findAllByOrderByDateDesc();
 	
 	List<Post> findAllByOrderByDateDescTimeDesc();
+	
+	@Query(value="SELECT *, DATE_FORMAT(post.date, '%Y-%m-%d') FROM hapns.post WHERE DATE(post.date) = CURDATE() ORDER BY date DESC, time DESC;", nativeQuery = true)
+	List<Post> findAllToday();
+	
+	@Query(value="SELECT * FROM hapns.post WHERE WEEKOFYEAR(date)=WEEKOFYEAR(NOW()) AND YEAR(date) = YEAR(now()) ORDER BY date DESC, time DESC", nativeQuery = true)
+	List<Post> findAllThisWeek();
+	
 }

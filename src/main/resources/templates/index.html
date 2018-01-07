@@ -15,27 +15,38 @@
 	     Create Post</button>
 	-->
 	
+	
+	<div class="displayOptionBar">
+		<form class="displayOption" th:action="@{/index}" method="GET">
+			<input type="hidden" name="display" value="all" />
+	    	<input class="going" type="submit" value="All" />
+		</form>
+		<form class="displayOption" th:action="@{/index}" method="GET">
+			<input type="hidden" name="display" value="today"/>
+	    	<input class="going" type="submit" value="Today" />
+		</form>
+		<form class="displayOption" th:action="@{/index}" method="GET">
+			<input type="hidden" name="display" value="thisWeek"/>
+	    	<input class="going" type="submit" value="This Week" />
+		</form>
+		
+	</div>
+	
 	<form th:action="@{/createPost}" method="GET">
 	    <input class="createPost" type="submit" value="Create post" />
 	</form>
 	
 	<!--  
 	<button class="createPost"><a th:href="@{/createPost}">Create post</a></button>
-	-->
+	-->	
 	
 	<div class="postList" th:unless="${#lists.isEmpty(posts)}">
 		<dl th:each="post : ${posts}">
 			<dt class="post">
 				<p>User: <span th:text="${post.user}"></span></p>
-				<p>Description: <span th:text="${post.text}"></span></p>
-				<!--  
-				<p>Date: <span th:text="$(post.date)"></span></p>
-				<p>Time: <span th:text="$(post.time)"></span></p>
-				-->
-				
-				<!-- 
-				<p>Time: <span th:text="${#temporals.format(post.dateTime, 'yyyy-MM-dd HH:mm')}"> </span></p>
-				 -->
+				<p>Description: <span th:text="${post.text}"></span></p>				
+				<p>Date: <span th:text="${#dates.format(post.date, 'EEEE d-MMM-yyyy')}"></span></p>
+				<p>Time: <span th:text="${#dates.format(post.time, 'HH:mm')}"></span></p>				
 				<p>Going: <span th:text="${post.going}"></span>  </p>
 				<p>	
 					<form th:action="@{/}" method="POST">

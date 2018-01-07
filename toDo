@@ -10,6 +10,6 @@
 -images for posts
 -csrf 
 *login UI
--today tab for posts
+*today, week, all tab for posts
 -remove posts after timestamp reached
 * #going indicator

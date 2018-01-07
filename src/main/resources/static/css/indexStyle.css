@@ -32,6 +32,17 @@ a{
 	color: white;
 }
 
+.displayOption {
+   display:inline-block;
+   margin-right:5px;
+}
+
+.displayOptionBar{
+	margin:auto;
+	width: 60%;	
+	padding: 10px 0px;
+}
+
 .createPost{
 	border: none;
 	background-color: rgb(50, 156, 195);
