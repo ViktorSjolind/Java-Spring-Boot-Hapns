@@ -3,44 +3,39 @@
 <html>
 
 <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hapns - the latest event</title>
 <link th:href="@{/css/indexStyle.css}" rel="stylesheet" />
 </head>
 
 <body>
-	<h1>Hapns</h1>
+<div class="all-container">
+	<header>	
+		<h1>Hapns</h1>
+	</header>
 	
-	<!--  
-	<button class="createPost" onclick="location.href='/createPost'" type="button">
-	     Create Post</button>
-	-->
-	
-	
-	<div class="displayOptionBar">
-		<form class="displayOption" th:action="@{/index}" method="GET">
-			<input type="hidden" name="display" value="all" />
-	    	<input class="going" type="submit" value="All" />
+	<nav>
+		<div class="option-container">
+			<form th:action="@{/index}" method="GET">
+				<input type="hidden" name="display" value="all" />
+		    	<input class="option-input" type="submit" value="All" />
+			</form>
+			<form th:action="@{/index}" method="GET">
+				<input type="hidden" name="display" value="today"/>
+		    	<input class="option-input" type="submit" value="Today" />
+			</form>
+			<form th:action="@{/index}" method="GET">
+				<input type="hidden" name="display" value="thisWeek"/>
+		    	<input class="option-input" type="submit" value="This Week" />
+			</form>		
+		</div>	
+		<form th:action="@{/createPost}" method="GET">
+		    <input class="create-post" type="submit" value="Create post" />
 		</form>
-		<form class="displayOption" th:action="@{/index}" method="GET">
-			<input type="hidden" name="display" value="today"/>
-	    	<input class="going" type="submit" value="Today" />
-		</form>
-		<form class="displayOption" th:action="@{/index}" method="GET">
-			<input type="hidden" name="display" value="thisWeek"/>
-	    	<input class="going" type="submit" value="This Week" />
-		</form>
-		
-	</div>
+	</nav>
 	
-	<form th:action="@{/createPost}" method="GET">
-	    <input class="createPost" type="submit" value="Create post" />
-	</form>
-	
-	<!--  
-	<button class="createPost"><a th:href="@{/createPost}">Create post</a></button>
-	-->	
-	
-	<div class="postList" th:unless="${#lists.isEmpty(posts)}">
+	<article th:unless="${#lists.isEmpty(posts)}">
 		<dl th:each="post : ${posts}">
 			<dt class="post">
 				<p>User: <span th:text="${post.user}"></span></p>
@@ -51,17 +46,13 @@
 				<p>	
 					<form th:action="@{/}" method="POST">
 						<input th:if="${post != null}" type="hidden" th:value="${post.id}" name="id" />
-				    	<input class="going" type="submit" value="Going" />
+				    	<input class="going-input" type="submit" value="Going" />
 					</form> 
 				</p>
 			</dt>		
 		</dl>
-	</div>
-		
-	<div th:if="${#lists.isEmpty(posts)}">
-		<p>No posts</p>		
-	</div>
-
-
+	</article>
+	
+</div>
 </body>
 </html>

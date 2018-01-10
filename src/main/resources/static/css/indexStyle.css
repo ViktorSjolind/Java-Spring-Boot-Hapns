@@ -6,67 +6,83 @@ rgb(125, 25, 53) wine red
 light blue background  rgb(192, 222, 237)
 #F5F3EE dark white
 
+
 twitter background rgb(230, 236, 240)
 twitter selected rgb(245, 248, 250)
 twitter button rgb(50, 156, 195)
 
 */
 
-*, html{
-	margin: 0;
-	padding: 0;
+:root{
+	--gray: rgb(230, 236, 240);
+	--lightGray: rgb(245, 248, 250);
+	--blue: rgb(50, 156, 195)
+	
+}	
+
+*{
+	margin:0;
+	box-sizing:border-box;
+}
+
+.all-container{
+	max-width: 900px;
+	margin: 0 auto;
 }
 
 body{
 	
-	background-color: rgb(230, 236, 240);
+	background-color: var(--gray);
 }
 
-h1{
-	text-align:center;
-	padding: 10px;
+header h1{
+	text-align:left;
+	margin-top: 20px;
 }
 
-a{
-	text-decoration: none;
-	color: white;
+nav{
+	width: 100%;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin: 30px 0;
+	padding: 0;
 }
 
-.displayOption {
-   display:inline-block;
-   margin-right:5px;
+.option-container{
+	display: flex;	
+	margin-left: 0px;
 }
 
-.displayOptionBar{
-	margin:auto;
-	width: 60%;	
-	padding: 10px 0px;
-}
-
-.createPost{
-	border: none;
-	background-color: rgb(50, 156, 195);
-	text-align: center;
+.option-input{
 	
-	position: absolute;
-    left: 84%;
-    padding: 15px 32px;
+}
+
+
+
+.create-post, .option-input{
+	border: none;
+	background-color: var(--blue);
+	text-align: center;	
+    padding: 15px 30px;
     font-size: 16px;
     color: white;
     cursor: pointer;
 }
 
-.createPost:hover{
-	opacity: 0.9;
+.create-post:hover, .option-input:hover{
+	opacity: 0.8;
 }
 
-.postList{
+
+
+article{
 	margin: auto;
-    width: 60%;
+    width: 100%;
 }
 
 .post{
-	background-color: rgb(255,255,255);
+	background-color: white;
     color: black;
     border-bottom-style: solid;
     border-bottom-width: thin;
@@ -75,5 +91,11 @@ a{
 }
 
 .post:hover{	
-	background-color: rgb(245, 248, 250);
+	background-color: var(--lightGray);
+
+}
+
+
+.going-input{
+	
 }
