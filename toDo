@@ -13,7 +13,7 @@
 *today, week, all tab for posts
 -remove posts after timestamp reached
 * #going indicator
--modal for login
+*modal for login
 -input validation
 -responsive
 -ajax for fetching posts

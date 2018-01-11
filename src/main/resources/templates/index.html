@@ -29,10 +29,14 @@
 				<input type="hidden" name="display" value="thisWeek"/>
 		    	<input class="option-input" type="submit" value="This Week" />
 			</form>		
-		</div>	
-		<form th:action="@{/createPost}" method="GET">
-		    <input class="create-post" type="submit" value="Create post" />
-		</form>
+		</div>
+		
+		<div class="action-container">
+			<button id="open-login">Login</button>		
+			<form th:action="@{/createPost}" method="GET">
+			    <input class="create-post" type="submit" value="Create post" />
+			</form>
+		</div>
 	</nav>
 	
 	<article th:unless="${#lists.isEmpty(posts)}">
@@ -51,8 +55,24 @@
 				</p>
 			</dt>		
 		</dl>
-	</article>
-	
+	</article>	
 </div>
+	
+	<div id="login-modal" class="modal">
+		<div class="modal-content">
+			<span id="close-modal">&times;</span>
+			
+			<form class="inputBox" th:action="@{/login}" method="post">
+				<p><label><strong>Username</strong></label></p>
+				<p><input type="text" placeholder="Enter Username" name="username" th:required="required"/></p>
+				<p><label><strong>Password</strong></label></p>
+				<p><input type="password" placeholder="Enter Password" name="password" th:required="required"/></p>
+				<p><input class="submit-button" type="submit" value="Sign In"/></p>
+			</form>			
+		</div>
+	</div>
+	
+<script type="text/javascript" src="/js/modal.js" /> 
+
 </body>
 </html>
