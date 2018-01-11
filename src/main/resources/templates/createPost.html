@@ -14,19 +14,17 @@
 	
 	<div class="formContainer">
 	<h3>Add a post</h3>
-		<form action="#" th:action="@{/createPost}" th:object="${post}" method="POST">		
-			
-			<!-- Save to entity <p>Date: <input type="date" name="dateVar" th:field="*{dateString}" /></p>  -->
-			<p>Description: <input type="text" th:field="*{text}" /> </p>						
-			<p>Date: <input type="date" name="dateInputString" /></p>
-			<p>Time: <input type="time" name="timeInputString" /></p>
+		<form id="create-post" action="#" th:action="@{/createPost}" th:object="${post}" method="POST">		
+			<p>Description: <input type="text" th:field="*{text}" th:required="required" maxlength="255"/> </p>						
+			<p>Date: <input type="date" name="dateInputString" th:required="required" /></p>
+			<p>Time: <input type="time" name="timeInputString" th:required="required" /></p>
 			<p><input class="submitButton" type="submit" value="Submit" /> </p>
-			
+			<p class="error-message"></p>
 			
 		</form>
 	</div>	
 
 
-
+<script type="text/javascript" src="/js/validation.js" /> 
 </body>
 </html>
