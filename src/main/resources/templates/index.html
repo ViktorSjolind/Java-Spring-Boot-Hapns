@@ -1,40 +1,56 @@
-<!DOCTYPE html>
 
-<html>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hapns - the latest event</title>
 <link th:href="@{/css/indexStyle.css}" rel="stylesheet" />
+
+
 </head>
 
 <body>
 <div class="all-container">
 	<header>	
 		<h1>Hapns</h1>
+		<div sec:authorize="isAuthenticated()">
+			<h3>Hello there, <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h3>
+		</div>
 	</header>
 	
 	<nav>
 		<div class="option-container">
 			<form th:action="@{/index}" method="GET">
 				<input type="hidden" name="display" value="all" />
-		    	<input class="option-input" type="submit" value="All" />
+		    	<input class="nav-button" type="submit" value="All" />
 			</form>
 			<form th:action="@{/index}" method="GET">
 				<input type="hidden" name="display" value="today"/>
-		    	<input class="option-input" type="submit" value="Today" />
+		    	<input class="nav-button" type="submit" value="Today" />
 			</form>
 			<form th:action="@{/index}" method="GET">
 				<input type="hidden" name="display" value="thisWeek"/>
-		    	<input class="option-input" type="submit" value="This Week" />
+		    	<input class="nav-button" type="submit" value="This Week" />
 			</form>		
 		</div>
 		
 		<div class="action-container">
-			<button id="open-login">Login</button>		
+			<div sec:authorize="isAuthenticated()">
+				 <form th:action="@{/logout}" method="post">
+				     <input type="submit" class="nav-button" value="Log out"/>
+				 </form>
+			</div>
+			<div sec:authorize="isAnonymous()">
+				<button id="open-login" class="nav-button">Login</button>		
+			</div>			
+			
 			<form th:action="@{/createPost}" method="GET">
-			    <input class="create-post" type="submit" value="Create post" />
+			    <input class="nav-button" type="submit" value="Create post" />
 			</form>
 		</div>
 	</nav>

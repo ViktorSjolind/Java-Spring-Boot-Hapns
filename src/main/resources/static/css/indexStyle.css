@@ -65,7 +65,7 @@ nav{
 
 
 
-.create-post, .option-input, #open-login{
+.nav-button{
 	border: none;
 	background-color: var(--blue);
 	text-align: center;	
@@ -75,7 +75,7 @@ nav{
     cursor: pointer;
 }
 
-.create-post:hover, .option-input:hover, #open-login:hover{
+.nav-button:hover{
 	opacity: 0.8;
 }
 

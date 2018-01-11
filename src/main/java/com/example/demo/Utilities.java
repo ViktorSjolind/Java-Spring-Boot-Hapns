@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Utilities {
-	
+import org.springframework.context.annotation.Bean;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+
+public class Utilities {		
 	/**
 	 Extract element from pseudo array
 	 */
