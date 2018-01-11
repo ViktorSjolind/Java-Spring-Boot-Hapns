@@ -62,6 +62,7 @@
 				<p>Description: <span th:text="${post.text}"></span></p>				
 				<p>Date: <span th:text="${#dates.format(post.date, 'EEEE d-MMM-yyyy')}"></span></p>
 				<p>Time: <span th:text="${#dates.format(post.time, 'HH:mm')}"></span></p>				
+				
 				<p>Going: <span th:text="${post.going}"></span>  </p>
 				<p>	
 					<form th:action="@{/}" method="POST">

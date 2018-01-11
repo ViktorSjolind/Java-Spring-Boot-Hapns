@@ -23,6 +23,7 @@ twitter button rgb(50, 156, 195)
 *{
 	margin:0;
 	box-sizing:border-box;
+	font-family: "Tahoma";
 }
 
 .all-container{
@@ -135,3 +136,25 @@ article{
 	font-weight: bold;
 }
 
+
+@media only screen and (max-width: 900px){
+	nav, .option-container, .action-container{
+		flex-direction: column;
+		/*fixed size for parent needed */ 
+		width: 100%;
+		margin: 0;
+		
+	}
+	
+	.nav-button{
+		box-sizing:border-box; 
+
+		width:100%; 
+		
+	}
+	
+	header h1{
+		text-align:center;
+	}
+	
+}
