@@ -164,7 +164,16 @@ article{
 	}
 	.small-button{
 		width: 100%;
-	
 
 	}
+	
+	
+	.modal-content{
+		margin: 20% 0;
+		width: 100%;
+	}
+	.input-container{
+		width: 100%;
+	}
+	
 }

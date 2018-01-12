@@ -79,12 +79,12 @@
 		<div class="modal-content">
 			<span id="close-modal">&times;</span>
 			
-			<form class="inputBox" th:action="@{/login}" method="post">
+			<form class="input-container" th:action="@{/login}" method="post">
 				<p><label><strong>Username</strong></label></p>
 				<p><input type="text" placeholder="Enter Username" name="username" th:required="required"/></p>
 				<p><label><strong>Password</strong></label></p>
 				<p><input type="password" placeholder="Enter Password" name="password" th:required="required"/></p>
-				<p><input class="submit-button" type="submit" value="Sign In"/></p>
+				<p><input class="small-button" type="submit" value="Login"/></p>
 			</form>			
 		</div>
 	</div>
