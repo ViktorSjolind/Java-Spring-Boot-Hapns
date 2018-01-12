@@ -16,6 +16,7 @@
 *modal for login
 *logout
 *input validation
--responsive
+*responsive
+-responsive login
 -ajax for fetching posts
 *html5 and css3
