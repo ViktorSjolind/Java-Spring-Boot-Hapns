@@ -59,7 +59,7 @@
 		<dl th:each="post : ${posts}">
 			<dt class="post">
 				<p>User: <span th:text="${post.user}"></span></p>
-				<p>Description: <span th:text="${post.text}"></span></p>				
+				<span th:text="|Description: ${post.text}|" class="post-text"></span>			
 				<p>Date: <span th:text="${#dates.format(post.date, 'EEEE d-MMM-yyyy')}"></span></p>
 				<p>Time: <span th:text="${#dates.format(post.time, 'HH:mm')}"></span></p>				
 				

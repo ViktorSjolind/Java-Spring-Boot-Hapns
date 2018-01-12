@@ -17,6 +17,7 @@
 *logout
 *input validation
 *responsive
+*break posts into new lines
 -responsive login
 -ajax for fetching posts
 *html5 and css3

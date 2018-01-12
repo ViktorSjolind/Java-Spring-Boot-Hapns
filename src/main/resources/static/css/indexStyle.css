@@ -98,6 +98,13 @@ article{
 }
 
 
+.post-text{
+	display:block;
+    width:500px;
+    overflow-wrap: normal;
+
+}
+
 .small-button{
 	border: none;
 	background-color: var(--blue);
