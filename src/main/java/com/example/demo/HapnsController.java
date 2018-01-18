@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class ChristmasController {
+public class HapnsController {
 	
 	@Autowired
 	PostRepository postRepository;

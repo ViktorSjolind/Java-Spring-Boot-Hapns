@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 @SpringBootApplication
-public class ChristmasAppApplication {
+public class HapnsApplication {
 	
 	@Bean
     public Java8TimeDialect java8TimeDialect() {
@@ -14,7 +14,7 @@ public class ChristmasAppApplication {
     }
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ChristmasAppApplication.class, args);
+		SpringApplication.run(HapnsApplication.class, args);
 
 	}
 }
