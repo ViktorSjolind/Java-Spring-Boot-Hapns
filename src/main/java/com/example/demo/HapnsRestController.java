@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class GreetingController {
+public class HapnsRestController {
 	
 	private static final String template ="Hello %s";
 	private final AtomicLong counter = new AtomicLong();
@@ -35,5 +35,24 @@ public class GreetingController {
 		return postRepository.findAllByOrderByDateDescTimeDesc();
 	}
 	
+	@RequestMapping("/get_today")
+	public List<Post> getTodayPosts(){
+		return postRepository.findAllToday();
+	}
+	
+	@RequestMapping("/get_this_week")
+	public List<Post> getThisWeekPosts(){
+		return postRepository.findAllThisWeek();
+	}
+	
 	
 }
+
+
+
+
+
+
+
+
+
