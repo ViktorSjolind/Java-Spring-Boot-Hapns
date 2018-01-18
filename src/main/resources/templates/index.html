@@ -25,6 +25,8 @@
 	
 	<nav>
 		<div class="option-container">
+			<!--
+			SOAP
 			<form th:action="@{/index}" method="GET">
 				<input type="hidden" name="display" value="all" />
 		    	<input class="nav-button" type="submit" value="All" />
@@ -36,7 +38,16 @@
 			<form th:action="@{/index}" method="GET">
 				<input type="hidden" name="display" value="thisWeek"/>
 		    	<input class="nav-button" type="submit" value="This Week" />
-			</form>		
+			</form>	
+			
+			  -->	
+			
+			<button id="option-all" class="nav-button">All</button>  
+			<button id="option-today" class="nav-button">Today</button> 
+			<button id="option-this-week" class="nav-button">This Week</button> 
+			
+						  
+			  
 		</div>
 		
 		<div class="action-container">
@@ -55,6 +66,7 @@
 		</div>
 	</nav>
 	
+	<!-- 
 	<article th:unless="${#lists.isEmpty(posts)}">
 		<dl th:each="post : ${posts}">
 			<dt class="post">
@@ -73,6 +85,13 @@
 			</dt>		
 		</dl>
 	</article>	
+	-->
+	
+	<article>
+	
+	
+	</article>
+	
 </div>
 	
 	<div id="login-modal" class="modal">
@@ -90,6 +109,7 @@
 	</div>
 	
 <script type="text/javascript" src="/js/modal.js" /> 
+<script type="text/javascript" src="/js/rest.js" /> 
 
 </body>
 </html>

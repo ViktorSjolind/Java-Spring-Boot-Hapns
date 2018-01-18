@@ -29,7 +29,9 @@ public class HapnsController {
 			model.addAttribute("posts", postList);
 		}				
 		*/
-		return "redirect:/index?display=all";
+		//return "redirect:/index?display=all";
+		
+		return "index";
 	}	
 	
 	
