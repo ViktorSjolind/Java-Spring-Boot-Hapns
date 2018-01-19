@@ -30,7 +30,7 @@ function modifyArticle(post){
 
 
 function getAll(){
-	xmlhttp.open("GET", "http://localhost:8080/api/get_all")
+	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all")
 	xmlhttp.send();
 }
 

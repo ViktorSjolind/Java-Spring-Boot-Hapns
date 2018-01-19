@@ -5,8 +5,6 @@
 var modal = document.getElementById("login-modal");
 var closeButton = document.getElementById("close-modal");
 
-
-//typerror after login since the button wont exist
 function displayLoginModal(){
 	modal.style.display = "block";
 }

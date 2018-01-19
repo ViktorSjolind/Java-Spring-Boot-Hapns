@@ -19,7 +19,6 @@
 *responsive
 *break posts into new lines
 *responsive login
--different buttons on index page which causes typerror in modal.js
- 
--ajax for fetching posts
+*different buttons on index page which causes typerror in modal.js
+ -ajax for fetching posts
 *html5 and css3
