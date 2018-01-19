@@ -3,10 +3,11 @@
  */
 
 var modal = document.getElementById("login-modal");
-var loginButton = document.getElementById("open-login");
 var closeButton = document.getElementById("close-modal");
 
-loginButton.onclick = function(){
+
+//typerror after login since the button wont exist
+function displayLoginModal(){
 	modal.style.display = "block";
 }
 

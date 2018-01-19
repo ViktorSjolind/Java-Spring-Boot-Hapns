@@ -23,6 +23,7 @@ buttonOptionThisWeek.onclick = function(){
 
 function modifyArticle(post){
 	var articleObj = document.getElementsByTagName("article")[0];
+	 				 document.getElementsByTagName("UL")[0];
 	articleObj.innerHTML += post;
 	
 }

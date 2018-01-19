@@ -57,7 +57,7 @@
 				 </form>
 			</div>
 			<div sec:authorize="isAnonymous()">
-				<button id="open-login" class="nav-button">Login</button>		
+				<button id="open-login" class="nav-button" onclick ="displayLoginModal()">Login</button>		
 			</div>			
 			
 			<form th:action="@{/createPost}" method="GET">
