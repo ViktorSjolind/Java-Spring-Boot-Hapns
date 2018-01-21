@@ -9,8 +9,8 @@ window.onload = function(){
 
 
 buttonOptionAll.onclick = function(){
-	var postObj = getAll();
-	modifyArticle(postObj);
+	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all")
+	xmlhttp.send();			
 }
 
 buttonOptionToday.onclick = function(){
@@ -21,22 +21,46 @@ buttonOptionThisWeek.onclick = function(){
 	
 }
 
-function modifyArticle(post){
-	var articleObj = document.getElementsByTagName("article")[0];
-	 				 document.getElementsByTagName("UL")[0];
-	articleObj.innerHTML += post;
-	
-}
 
-
-function getAll(){
-	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all")
-	xmlhttp.send();
-}
 
 xmlhttp.onreadystatechange = function(){
 	if(this.readyState == 4 && this.status == 200){
-		var resultObj = JSON.parse(this.responseText);
-		return resultObj;
+		responseArray = JSON.parse(this.responseText);		
+		var anchorElement = document.getElementsByTagName("main")[0];	
+		anchorElement.innerHTML = "";
+		
+		for(var index = 0; index < responseArray.length; index++){
+			anchorElement.appendChild(createLayout(responseArray[index]));
+		}		
 	}
+}
+
+
+function createLayout(responseContent){
+	var article = document.createElement("article");
+	
+	var header = document.createElement("header"), h4 = document.createElement("h4");
+	h4.textContent = "Title of event";
+	header.appendChild(h4);	
+		
+	var pTime = document.createElement("p");
+	pTime.textContent = responseContent.date + " " + responseContent.time;
+	
+	var pText = document.createElement("p");
+	pText.textContent = responseContent.text;
+	
+	var pGoing = document.createElement("p");
+	pGoing.textContent = responseContent.going;
+	
+	var buttonGoing = document.createElement("BUTTON");
+	buttonGoing.innerHTML = "Going";
+			
+	article.appendChild(header);
+	article.appendChild(pTime);
+    article.appendChild(pText);
+    article.appendChild(pGoing);
+    article.appendChild(buttonGoing);	
+	
+    return article;
+	
 }
