@@ -70,8 +70,8 @@ public class HapnsController {
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public String login(@CookieValue(value="pressed", defaultValue = "")String pressed, Long id, HttpServletResponse response, String displayOption){		
-		System.out.println("displayOption: " + displayOption);
-		System.out.println("id: " + id.toString() + "\n" + pressed);
+		//System.out.println("displayOption: " + displayOption);
+		System.out.println("id: " + id + "\n" + pressed);
 		
 		//every cookie is a pseudo array
 		// _id_id_id

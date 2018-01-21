@@ -4,7 +4,8 @@ var buttonOptionThisWeek = document.getElementById("option-this-week");
 var xmlhttp = new XMLHttpRequest();
 
 window.onload = function(){
-	
+	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all");
+	xmlhttp.send();		
 }
 
 
@@ -40,6 +41,9 @@ xmlhttp.onreadystatechange = function(){
 
 function createLayout(responseContent){
 	var article = document.createElement("article");
+	article.classList.add("post");
+	
+	console.log("type: " + typeof responseContent.id);
 	
 	var header = document.createElement("header"), h4 = document.createElement("h4");
 	h4.textContent = responseContent.title;
@@ -54,15 +58,31 @@ function createLayout(responseContent){
 	var pGoing = document.createElement("p");
 	pGoing.textContent = responseContent.going;
 	
-	var buttonGoing = document.createElement("BUTTON");
-	buttonGoing.innerHTML = "Going";
+	var form = document.createElement("FORM");
+	form.setAttribute("method", "POST");
+	form.setAttribute("action", "/");
+	
+	var inputId = document.createElement("INPUT");
+	inputId.setAttribute("type", "hidden");
+	inputId.setAttribute("value", responseContent.id);
+	inputId.setAttribute("name", "id");	//name for controller method
+	
+	var inputSubmit = document.createElement("INPUT");
+	inputSubmit.setAttribute("type", "submit");
+	inputSubmit.setAttribute("value", "Going");
+	inputSubmit.classList.add("small-button");
+	
+	form.appendChild(inputId);
+	form.appendChild(inputSubmit);
+	console.log("id: " + responseContent.id);
 			
 	article.appendChild(header);
 	article.appendChild(pTime);
     article.appendChild(pText);
     article.appendChild(pGoing);
-    article.appendChild(buttonGoing);	
+    article.appendChild(form);	
 	
+    
     return article;
 	
 }
