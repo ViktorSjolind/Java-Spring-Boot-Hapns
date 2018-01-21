@@ -43,8 +43,6 @@ function createLayout(responseContent){
 	var article = document.createElement("article");
 	article.classList.add("post");
 	
-	console.log("type: " + typeof responseContent.id);
-	
 	var header = document.createElement("header"), h4 = document.createElement("h4");
 	h4.textContent = responseContent.title;
 	header.appendChild(h4);	
@@ -56,7 +54,7 @@ function createLayout(responseContent){
 	pText.textContent = responseContent.text;
 	
 	var pGoing = document.createElement("p");
-	pGoing.textContent = responseContent.going;
+	pGoing.textContent = "Attending: " + responseContent.going + " people";
 	
 	var form = document.createElement("FORM");
 	form.setAttribute("method", "POST");
@@ -74,7 +72,6 @@ function createLayout(responseContent){
 	
 	form.appendChild(inputId);
 	form.appendChild(inputSubmit);
-	console.log("id: " + responseContent.id);
 			
 	article.appendChild(header);
 	article.appendChild(pTime);

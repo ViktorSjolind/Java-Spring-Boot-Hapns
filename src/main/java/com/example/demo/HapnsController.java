@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HapnsController {
 	
 	@Autowired
-	PostRepository postRepository;
+	PostRepository postRepository;	
+	@Autowired
+	Utilities utilities;
+	@Autowired
+	HapnsService hapnsService;
 	
 	@RequestMapping(value={"/"}, method=RequestMethod.GET)
 	public String index(){	
@@ -41,25 +45,14 @@ public class HapnsController {
 		
 		if(display == null || display.isEmpty()){
 			return "redirect:/index?display=all";
-		}
-		
-		if(display.equals("today")){
-			System.out.println("today");
-			postList = postRepository.findAllToday();
-		}
-		if(display.equals("thisWeek")){
-			System.out.println("thisWeek");
-			postList = postRepository.findAllThisWeek();
-		}
-		if(display.equals("all")){
-			System.out.println("all");
-			postList = postRepository.findAllByOrderByDateDescTimeDesc();
-		}
-		
+		}else{
+			postList = hapnsService.getPosts(display);
+		}		
 				
 		if(postList != null){
 			model.addAttribute("posts", postList);
-		}				
+		}	
+		
 		return "index";
 	}
 	
@@ -70,14 +63,12 @@ public class HapnsController {
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public String login(@CookieValue(value="pressed", defaultValue = "")String pressed, Long id, HttpServletResponse response, String displayOption){		
-		//System.out.println("displayOption: " + displayOption);
-		System.out.println("id: " + id + "\n" + pressed);
+		//System.out.println("id: " + id + "\n" + pressed);
 		
 		//every cookie is a pseudo array
 		// _id_id_id
-		// id's denote which posts the user have set to going
+		// id's denote which posts the user have set to going		
 		
-		Utilities utilities = new Utilities();
 		List pressedList = utilities.getListFromPseudoArray(pressed);		
 		
 		if(!pressedList.contains(id.toString())){
