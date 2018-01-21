@@ -15,6 +15,7 @@
 	<div class="formContainer">
 	<h3>Add a post</h3>
 		<form id="create-post" action="#" th:action="@{/createPost}" th:object="${post}" method="POST">		
+			<p>Title: <input type="text" th:field="*{title}" th:required="required" maxlength="50"/> </p>	
 			<p>Description: <input type="text" th:field="*{text}" th:required="required" maxlength="255"/> </p>						
 			<p>Date: <input type="date" name="dateInputString" th:required="required" /></p>
 			<p>Time: <input type="time" name="timeInputString" th:required="required" /></p>

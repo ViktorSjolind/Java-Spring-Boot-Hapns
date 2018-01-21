@@ -9,16 +9,18 @@ window.onload = function(){
 
 
 buttonOptionAll.onclick = function(){
-	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all")
+	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all");
 	xmlhttp.send();			
 }
 
 buttonOptionToday.onclick = function(){
-	
+	xmlhttp.open("GET", "http://localhost:8080/public_api/get_today");
+	xmlhttp.send();	
 }
 
 buttonOptionThisWeek.onclick = function(){
-	
+	xmlhttp.open("GET", "http://localhost:8080/public_api/get_this_week");
+	xmlhttp.send();	
 }
 
 
@@ -40,7 +42,7 @@ function createLayout(responseContent){
 	var article = document.createElement("article");
 	
 	var header = document.createElement("header"), h4 = document.createElement("h4");
-	h4.textContent = "Title of event";
+	h4.textContent = responseContent.title;
 	header.appendChild(h4);	
 		
 	var pTime = document.createElement("p");

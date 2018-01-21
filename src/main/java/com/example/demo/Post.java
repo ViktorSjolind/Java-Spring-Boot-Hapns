@@ -17,6 +17,7 @@ public class Post {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;	
 	private String user;
+	private String title;
 	private String text;
 	private Date date;  
 	private Time time;	
@@ -48,6 +49,14 @@ public class Post {
 		this.text = text;
 	}
 	
+	
+	public String getTitle(){
+		return title;
+	}
+	
+	public void setTitle(String title){
+		this.title = title;
+	}
 
 	
 	
