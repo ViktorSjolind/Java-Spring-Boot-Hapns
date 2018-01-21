@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PostController {
 	
 	@Autowired
-	PostRepository postRepository;
+	PostRepository postRepository;	
+	@Autowired
+	Utilities utilities;
 	
 	@RequestMapping(value="/createPost", method=RequestMethod.GET)
 	public String createPostForm(Model model){
@@ -36,9 +38,8 @@ public class PostController {
 		 when the object serialized from the client side to the server , 
 		 It has no knowledge about the complex types(like java.time.LocalDate) 
 		 unless they are expressed interms of simple types.
-		 */
-		
-		Utilities utilities = new Utilities();				
+		 */		
+				
 		post.setDate(utilities.getDateFromString(dateInputString));
 		post.setTime(utilities.getTimeFromString(timeInputString));
 		
