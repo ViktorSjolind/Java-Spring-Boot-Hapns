@@ -2,27 +2,35 @@
  * 
  */
 
-var modal = document.getElementById("login-modal");
+var loginModal = document.getElementById("login-modal");
+var createPostModal = document.getElementById("create-post-modal");
 var closeButton = document.getElementById("close-modal");
 
 function displayLoginModal(){
-	modal.style.display = "block";
+	loginModal.style.display = "block";
 }
+
+function displayCreatePostModal(){
+	createPostModal.style.display = "block";
+}
+
 
 closeButton.onclick = function(){
 	hideModal();
 }
 
 window.onclick = function(event){
-	if(event.target == modal){
+	if(event.target == loginModal){
 		hideModal();
 	}
 }
 
 
 function hideModal(){
-	modal.style.display = "none";
+	loginModal.style.display = "none";
 }
+
+
 
 
 
