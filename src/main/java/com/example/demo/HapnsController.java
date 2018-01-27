@@ -25,18 +25,13 @@ public class HapnsController {
 	@Autowired
 	HapnsService hapnsService;
 	
-	@RequestMapping(value={"/"}, method=RequestMethod.GET)
-	public String index(){	
-		/*
-		List<Post> postList = postRepository.findAllByOrderByDateDescTimeDesc();		
-		if(postList != null){
-			model.addAttribute("posts", postList);
-		}				
-		*/
-		//return "redirect:/index?display=all";
 		
+	
+	@RequestMapping(value={"/"}, method=RequestMethod.GET)
+	public String index(Model model){	
+		model.addAttribute("post", new Post());		
 		return "index";
-	}	
+	}
 	
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
@@ -63,8 +58,7 @@ public class HapnsController {
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public String login(@CookieValue(value="pressed", defaultValue = "")String pressed, Long id, HttpServletResponse response, String displayOption){		
-		//System.out.println("id: " + id + "\n" + pressed);
-		
+				
 		//every cookie is a pseudo array
 		// _id_id_id
 		// id's denote which posts the user have set to going		

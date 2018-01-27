@@ -57,7 +57,7 @@
 				 </form>
 			</div>
 			<div sec:authorize="isAnonymous()">
-				<button id="open-login" class="nav-button" onclick ="displayLoginModal()">Login</button>		
+				<button id="open-login" class="nav-button" onclick ="showLoginModal()">Login</button>		
 			</div>			
 			
 			<!-- 
@@ -65,7 +65,9 @@
 			    <input class="nav-button" type="submit" value="Create post" />
 			</form>
 			 -->
-			<button id="create-post" class="nav-button" onclick ="displayLoginModal()">Login</button>
+			<div sec:authorize="isAuthenticated()">
+				<button id="create-post" class="nav-button" onclick ="showCreatePostModal()">Create Post</button>
+			</div>
 			
 			
 		</div>
@@ -104,7 +106,7 @@
 	<div id="login-modal" class="modal">
 		<!-- content -->
 		<div class="modal-content">
-			<span id="close-modal">&times;</span>
+			<span id="close-login" class="close-modal">&times;</span>
 			
 			<form class="input-container" th:action="@{/login}" method="post">
 				<p><label><strong>Username</strong></label></p>
@@ -116,15 +118,23 @@
 		</div>
 	</div>
 	
-	<div id ="create-post-modal" class="modal">
+	<div id="create-post-modal" class="modal">
 		<div class="modal-content">
-			<span id="close-modal">&times;</span>
-			<form id="create-post" action="#" th:action="@{/createPost}" th:object="${post}" method="POST">		
-				<p>Title: <input type="text" th:field="*{title}" th:required="required" maxlength="50"/> </p>	
-				<p>Description: <input type="text" th:field="*{text}" th:required="required" maxlength="255"/> </p>						
-				<p>Date: <input type="date" name="dateInputString" th:required="required" /></p>
-				<p>Time: <input type="time" name="timeInputString" th:required="required" /></p>
-				<p><input class="submitButton" type="submit" value="Submit" /> </p>
+			<span id="close-create-post" class="close-modal">&times;</span>
+			<form class="input-container" action="#" th:action="@{/createPost}" th:object="${post}" method="POST">		
+				<p><label><strong>Title:</strong></label></p>
+				<p><input type="text" th:field="*{title}" th:required="required" maxlength="50"/> </p>	
+				
+				<p><label><strong>Description:</strong></label></p>
+				<p><input type="text" th:field="*{text}" th:required="required" maxlength="255"/> </p>
+										
+				<p><label><strong>Date:</strong></label></p>
+				<p><input type="date" name="dateInputString" th:required="required" /></p>
+				
+				<p><label><strong>Time:</strong></label></p>
+				<p><input type="time" name="timeInputString" th:required="required" /></p>
+				
+				<p><input class="small-button" type="submit" value="Submit" /> </p>
 				<p class="error-message"></p>			
 			</form>			
 		</div>

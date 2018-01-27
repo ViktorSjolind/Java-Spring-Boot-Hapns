@@ -4,31 +4,38 @@
 
 var loginModal = document.getElementById("login-modal");
 var createPostModal = document.getElementById("create-post-modal");
-var closeButton = document.getElementById("close-modal");
+var closeLogin = document.getElementById("close-login");
+var closeCreatePost = document.getElementById("close-create-post");
 
-function displayLoginModal(){
+function showLoginModal(){
 	loginModal.style.display = "block";
 }
 
-function displayCreatePostModal(){
+function showCreatePostModal(){
 	createPostModal.style.display = "block";
 }
 
 
-closeButton.onclick = function(){
-	hideModal();
+closeLogin.onclick = function(){
+	loginModal.style.display = "none";
+	
+}
+
+closeCreatePost.onclick = function(){
+	createPostModal.style.display = "none";
 }
 
 window.onclick = function(event){
 	if(event.target == loginModal){
-		hideModal();
+		loginModal.style.display = "none";
+	}
+	
+	if(event.target == createPostModal){
+		createPostModal.style.display = "none";
 	}
 }
 
 
-function hideModal(){
-	loginModal.style.display = "none";
-}
 
 
 
