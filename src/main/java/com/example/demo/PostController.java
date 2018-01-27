@@ -25,12 +25,11 @@ public class PostController {
 	}
 	
 	@RequestMapping(value="/createPost", method=RequestMethod.POST)
-	public String createPost(@ModelAttribute Post post, String dateInputString, String timeInputString){
+	public String createPost(@ModelAttribute Post post, String descriptionInputString, String dateInputString, String timeInputString){
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentUser = authentication.getName();		
 		post.setUser(currentUser);
-		
-		System.out.println("***date from form? " + dateInputString + "\n" + timeInputString);
+		descriptionInputString = descriptionInputString.replace("\n", "<br> />\n");
 		
 		
 		/*
@@ -39,7 +38,7 @@ public class PostController {
 		 It has no knowledge about the complex types(like java.time.LocalDate) 
 		 unless they are expressed interms of simple types.
 		 */		
-				
+		post.setText(descriptionInputString);		
 		post.setDate(utilities.getDateFromString(dateInputString));
 		post.setTime(utilities.getTimeFromString(timeInputString));
 		

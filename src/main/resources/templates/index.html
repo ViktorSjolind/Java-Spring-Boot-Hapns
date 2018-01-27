@@ -52,6 +52,10 @@
 		
 		<div class="action-container">
 			<div sec:authorize="isAuthenticated()">
+				<button id="create-post" class="nav-button" onclick ="showCreatePostModal()">Create Post</button>
+			</div>
+			
+			<div sec:authorize="isAuthenticated()">
 				 <form th:action="@{/logout}" method="post">
 				     <input type="submit" class="nav-button" value="Log out"/>
 				 </form>
@@ -65,9 +69,7 @@
 			    <input class="nav-button" type="submit" value="Create post" />
 			</form>
 			 -->
-			<div sec:authorize="isAuthenticated()">
-				<button id="create-post" class="nav-button" onclick ="showCreatePostModal()">Create Post</button>
-			</div>
+			
 			
 			
 		</div>
@@ -108,35 +110,52 @@
 		<div class="modal-content">
 			<span id="close-login" class="close-modal">&times;</span>
 			
-			<form class="input-container" th:action="@{/login}" method="post">
-				<p><label><strong>Username</strong></label></p>
-				<p><input type="text" placeholder="Enter Username" name="username" th:required="required"/></p>
-				<p><label><strong>Password</strong></label></p>
-				<p><input type="password" placeholder="Enter Password" name="password" th:required="required"/></p>
-				<p><input class="small-button" type="submit" value="Login"/></p>
+			<form th:action="@{/login}" method="post">				
+				<ul class="form-style-1">
+				    <li>
+				        <label>Username</label>
+				        <input class="field-long" type="text" placeholder="Enter Username" name="username" th:required="required"/>
+				    </li>				
+				    <li>
+				        <label>Password</label>
+				        <input class="field-long" type="password" placeholder="Enter Password" name="password" th:required="required"/>
+				    </li>	
+				    <li>
+				    	<input class="small-button" type="submit" value="Login"/>
+				    </li>							   
+				</ul>
+				
 			</form>			
 		</div>
 	</div>
 	
 	<div id="create-post-modal" class="modal">
 		<div class="modal-content">
-			<span id="close-create-post" class="close-modal">&times;</span>
-			<form class="input-container" action="#" th:action="@{/createPost}" th:object="${post}" method="POST">		
-				<p><label><strong>Title:</strong></label></p>
-				<p><input type="text" th:field="*{title}" th:required="required" maxlength="50"/> </p>	
+			<span id="close-create-post" class="close-modal">&times;</span>			
+			<form action="#" th:action="@{/createPost}" th:object="${post}" method="POST">
+				<ul class="form-style-1">
+				    <li>
+				        <label>Title</label>
+				        <input class="field-long" type="text" th:field="*{title}" th:required="required" maxlength="50"/>
+				    </li>				
+				    <li>
+				        <label>Description</label>
+				        <textarea class="field-long field-textarea" name="descriptionInputString" th:required="required" maxlength="255"></textarea>
+
+				    </li>				    
+				    <li>
+				        <label>Date &amp; Time</label>
+				        <input type="date" class="field-divided" name="dateInputString" th:required="required" />
+				        <input type="time" class="field-divided" name="timeInputString" th:required="required" />
+				    </li>
 				
-				<p><label><strong>Description:</strong></label></p>
-				<p><input type="text" th:field="*{text}" th:required="required" maxlength="255"/> </p>
-										
-				<p><label><strong>Date:</strong></label></p>
-				<p><input type="date" name="dateInputString" th:required="required" /></p>
+				    <li>
+				        <input class="small-button" type="submit" value="Submit" />
+				    </li>
+				</ul>
+			</form>
+			
 				
-				<p><label><strong>Time:</strong></label></p>
-				<p><input type="time" name="timeInputString" th:required="required" /></p>
-				
-				<p><input class="small-button" type="submit" value="Submit" /> </p>
-				<p class="error-message"></p>			
-			</form>			
 		</div>
 	</div>
 	

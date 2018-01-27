@@ -48,7 +48,7 @@ function createLayout(responseContent){
 	header.appendChild(h4);	
 		
 	var pTime = document.createElement("p");
-	pTime.textContent = responseContent.date + " " + responseContent.time;
+	pTime.textContent = responseContent.date + " " + responseContent.time.substring(0, 5);
 	
 	var pText = document.createElement("p");
 	pText.textContent = responseContent.text;
