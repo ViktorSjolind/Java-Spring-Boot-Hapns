@@ -22,6 +22,8 @@ public class Post {
 	private Date date;  
 	private Time time;	
 	private int going = 0;
+	private String locationTitle;
+	private String locationCoordinates;
 	
 	public Long getId(){
 		return id;
@@ -86,6 +88,22 @@ public class Post {
 	
 	public void setGoing(int going){
 		this.going = going;
+	}
+
+	public String getLocationTitle() {
+		return locationTitle;
+	}
+
+	public void setLocationTitle(String locationTitle) {
+		this.locationTitle = locationTitle;
+	}
+
+	public String getLocationCoordinates() {
+		return locationCoordinates;
+	}
+
+	public void setLocationCoordinates(String locationCoordinates) {
+		this.locationCoordinates = locationCoordinates;
 	}
 
 	

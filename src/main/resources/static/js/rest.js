@@ -2,6 +2,9 @@ var buttonOptionAll = document.getElementById("option-all");
 var buttonOptionToday = document.getElementById("option-today");
 var buttonOptionThisWeek = document.getElementById("option-this-week");
 var xmlhttp = new XMLHttpRequest();
+var currentPage = 1;
+var recordsPerPage = 2;
+var postObjects = [];
 
 window.onload = function(){
 	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all");
@@ -32,9 +35,13 @@ xmlhttp.onreadystatechange = function(){
 		var anchorElement = document.getElementsByTagName("main")[0];	
 		anchorElement.innerHTML = "";
 		
+		postObjects = [];
+		
 		for(var index = 0; index < responseArray.length; index++){
-			anchorElement.appendChild(createLayout(responseArray[index]));
+			//anchorElement.appendChild(createLayout(responseArray[index]));
+			postObjects.push(createLayout(responseArray[index]));
 		}		
+		console.log(postObjects);
 	}
 }
 
@@ -80,6 +87,59 @@ function createLayout(responseContent){
     article.appendChild(form);	
 	
     
-    return article;
+    return article;	
+}
+
+function nextPage(){
+	if(currentPage < numberOfPages()){
+		currentPage++;
+		changePage(currentPage);
+	}
+}
+
+function changePage(page){
+	var buttonNext = document.getElementById("button-next");
+	var anchor = document.getElementsByTagName("main")[0];
+	var pageSpan = document.getElementById("page-number");
+	
+	if(page < 1) page = 1;
+	if(page > numberOfPages()) page = numberOfPages();
+	
+	anchor.innerHTML = "";
+	
+	for (var i = (page-1) * recordsPerPage; i < (page * recordsPerPage); i++) {
+        anchor.appendChild(postObjects[i]);
+    }
 	
 }
+
+
+
+
+
+
+function numberOfPages(){
+    return Math.ceil(postObjects.length / recordsPerPage);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

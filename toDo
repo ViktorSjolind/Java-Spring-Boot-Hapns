@@ -1,3 +1,6 @@
+-Google maps api for locations
+-PAGING
+-preserve line breaks 
 *username for posts
 *timestamp select by user for posts, when even is happening
 *index list all posts
@@ -5,19 +8,17 @@
 *createPost button
 *post UI
 *sort events according to date
--?map feature
 -?facebook login
--images for posts
+-?images for posts
 -csrf 
 *login UI
 *today, week, all tab for posts
 -remove posts after timestamp reached
-* #going indicator
+*going indicator
 *modal for login
 *logout
 *input validation
 *responsive
-*break posts into new lines
 *responsive login
 *different buttons on index page which causes typerror in modal.js
 *ajax for fetching posts
@@ -25,4 +26,3 @@
 -authorization of standard users
 -admin privileges
 *form css
-*preserve line breaks 
