@@ -9,6 +9,7 @@ var postObjects = [];
 window.onload = function(){
 	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all");
 	xmlhttp.send();		
+	
 }
 
 
@@ -42,6 +43,18 @@ xmlhttp.onreadystatechange = function(){
 			postObjects.push(createLayout(responseArray[index]));
 		}		
 		console.log(postObjects);
+		if(postObjects.length > 0){
+			changePage(1);
+		}else{
+			var buttonNext = document.getElementById("button-next");
+			var buttonPrevious = document.getElementById("button-previous")	
+			var pageSpan = document.getElementById("page-number");
+			
+			buttonPrevious.style.visibility = "hidden";			
+			buttonNext.style.visibility = "hidden";			
+			pageSpan.innerHTML = "";
+		}
+			
 	}
 }
 
@@ -90,6 +103,13 @@ function createLayout(responseContent){
     return article;	
 }
 
+function previousPage(){
+	if(currentPage > 1){
+		currentPage--;
+		changePage(currentPage);
+	}
+}
+
 function nextPage(){
 	if(currentPage < numberOfPages()){
 		currentPage++;
@@ -99,11 +119,12 @@ function nextPage(){
 
 function changePage(page){
 	var buttonNext = document.getElementById("button-next");
+	var buttonPrevious = document.getElementById("button-previous")
 	var anchor = document.getElementsByTagName("main")[0];
 	var pageSpan = document.getElementById("page-number");
 	
 	if(page < 1) page = 1;
-	if(page > numberOfPages()) page = numberOfPages();
+	if(page > numberOfPages()) page = numberOfPages();	
 	
 	anchor.innerHTML = "";
 	
@@ -111,11 +132,22 @@ function changePage(page){
         anchor.appendChild(postObjects[i]);
     }
 	
+	pageSpan.innerHTML = "Page: " + page;
+	
+	if(page == 1){
+		buttonPrevious.style.visibility = "hidden";
+	}else{
+		buttonPrevious.style.visibility = "visible";
+	}
+	
+	if(page == numberOfPages()){
+		buttonNext.style.visibility = "hidden";
+	}else{
+		buttonNext.style.visibility = "visible";
+	}
+	
+	
 }
-
-
-
-
 
 
 function numberOfPages(){
