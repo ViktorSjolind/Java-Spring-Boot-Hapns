@@ -15,17 +15,20 @@ window.onload = function(){
 
 buttonOptionAll.onclick = function(){
 	xmlhttp.open("GET", "http://localhost:8080/public_api/get_all");
-	xmlhttp.send();			
+	xmlhttp.send();		
+	currentPage = 1;
 }
 
 buttonOptionToday.onclick = function(){
 	xmlhttp.open("GET", "http://localhost:8080/public_api/get_today");
 	xmlhttp.send();	
+	currentPage = 1;
 }
 
 buttonOptionThisWeek.onclick = function(){
 	xmlhttp.open("GET", "http://localhost:8080/public_api/get_this_week");
 	xmlhttp.send();	
+	currentPage = 1;
 }
 
 
