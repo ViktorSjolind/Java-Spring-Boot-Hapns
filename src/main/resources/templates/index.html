@@ -159,6 +159,25 @@
 				    <li>
 				        <input class="small-button" type="submit" value="Submit" />
 				    </li>
+				    
+				    <li>
+				    	<label>Optional address</label>
+				    	<div id="map-container">
+				    		<div id="map-floating-panel">				    			
+				    			<input id="address" type="text" value="Turku Rautatieasema" />
+				    			<button id="submit-address">Add</button>
+			    			
+				    		</div>
+				    		
+				    		<div id="map">
+				    		
+				    		</div>
+				    		
+				    		
+				    	
+				    	</div>
+				    </li>
+				    
 				</ul>
 			</form>
 			
@@ -167,8 +186,10 @@
 	</div>
 	
 	
-<script type="text/javascript" src="/js/modal.js" /> 
-<script type="text/javascript" src="/js/rest.js" /> 
+<script type="text/javascript" src="/js/modal.js"></script>
+<script type="text/javascript" src="/js/rest.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3HKHBazSGzWQ5zSFOtTzIU6daRyeTVRc&amp;callback=initMap" async="async" defer="defer"></script>
+<script type="text/javascript" src="/js/mapFeatures.js"></script>
 
 </body>
 </html>
